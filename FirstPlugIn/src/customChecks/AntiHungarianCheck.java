@@ -1,4 +1,4 @@
-package CheckPlugIn;
+package customChecks;
 
 import com.puppycrawl.tools.checkstyle.api.*;
 import java.util.regex.Pattern;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE checkstyle-metadata PUBLIC
+"-//eclipse-cs//DTD Check Metadata 1.1//EN"
+"http://eclipse-cs.sourceforge.net/dtds/checkstyle-metadata_1_1.dtd">
+<checkstyle-metadata>
+    <rule-group-metadata name="Category B Checks"  priority="1600">
+        <description>%BChecks.desc</description>
+        
+        <rule-metadata name="%CommentsCount.name" internal-name="CommentsCount" parent="TreeWalker">
+            <alternative-name internal-name="bChecks.CommentsCountCheck" />
+            <description>%CommentsCount.desc</description>
+        </rule-metadata>
+    </rule-group-metadata>
+</checkstyle-metadata>
+

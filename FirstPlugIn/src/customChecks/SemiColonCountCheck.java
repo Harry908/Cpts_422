@@ -1,4 +1,4 @@
-package CheckPlugIn;
+package customChecks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
