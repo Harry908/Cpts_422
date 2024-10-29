@@ -10,6 +10,11 @@
             <alternative-name internal-name="aChecks.HalsteadLengthCheck" />
             <description>%HalsteadLength.desc</description>
         </rule-metadata>
+        
+        <rule-metadata name="%HalsteadVocabulary.name" internal-name="HalsteadVocabulary" parent="TreeWalker">
+            <alternative-name internal-name="aChecks.HalsteadVocabularyCheck" />
+            <description>%HalsteadVocabulary.desc</description>
+        </rule-metadata>
     </rule-group-metadata>
 </checkstyle-metadata>
 
