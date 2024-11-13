@@ -41,12 +41,16 @@ public final class HalsteadToken {
 	        TokenTypes.LITERAL_TRY,TokenTypes.LITERAL_CATCH, 
 	        TokenTypes.CTOR_CALL, TokenTypes.METHOD_CALL,
 	        TokenTypes.LITERAL_ASSERT,  
-	        TokenTypes.TYPECAST
+	        TokenTypes.TYPECAST, TokenTypes.LITERAL_INT, TokenTypes.LITERAL_BOOLEAN,
+	        TokenTypes.LITERAL_LONG, TokenTypes.LITERAL_DOUBLE,
+	        TokenTypes.LITERAL_BYTE,TokenTypes.LITERAL_FLOAT,TokenTypes.LITERAL_CHAR,
 	    };
 
 	    public static final int[] OPERANDS = {
 	        TokenTypes.LITERAL_THIS, TokenTypes.STRING_LITERAL, TokenTypes.NUM_DOUBLE, TokenTypes.NUM_INT,
-	        TokenTypes.NUM_FLOAT, TokenTypes.NUM_LONG, TokenTypes.IDENT, TokenTypes.CHAR_LITERAL
+	        TokenTypes.NUM_FLOAT, TokenTypes.NUM_LONG, TokenTypes.CHAR_LITERAL, 
+	        TokenTypes.LITERAL_NULL, TokenTypes.LITERAL_FALSE, TokenTypes.LITERAL_TRUE, 
+	        TokenTypes.IDENT
 	    };
 
 	    public static final int[] ALL_TOKENS;

@@ -15,6 +15,22 @@
             <alternative-name internal-name="aChecks.HalsteadVocabularyCheck" />
             <description>%HalsteadVocabulary.desc</description>
         </rule-metadata>
+        
+        <rule-metadata name="%HalsteadVolume.name" internal-name="HalsteadVolume" parent="TreeWalker">
+            <alternative-name internal-name="aChecks.HalsteadVolumeCheck" />
+            <description>%HalsteadVolume.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%HalsteadDifficulty.name" internal-name="HalsteadDifficulty" parent="TreeWalker">
+            <alternative-name internal-name="aChecks.HalsteadDifficultyCheck" />
+            <description>%HalsteadDifficulty.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%HalsteadEffort.name" internal-name="HalsteadEffort" parent="TreeWalker">
+            <alternative-name internal-name="aChecks.HalsteadEffortCheck" />
+            <description>%HalsteadEffort.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>
 

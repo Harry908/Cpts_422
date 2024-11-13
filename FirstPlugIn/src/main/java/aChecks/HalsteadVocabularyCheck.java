@@ -4,10 +4,10 @@ import java.util.Set;
 
 import com.puppycrawl.tools.checkstyle.api.*;
 public class HalsteadVocabularyCheck extends AbstractCheck{
-	private Set<Integer> visitedTokens;
+	private Set<String> visitedTokens;
 	@Override
 	public int[] getAcceptableTokens() {
-		return HalsteadToken.ALL_TOKENS;
+	    return HalsteadToken.ALL_TOKENS;
 	}
 
 	@Override
@@ -22,8 +22,7 @@ public class HalsteadVocabularyCheck extends AbstractCheck{
 	
 	@Override
 	public void visitToken(DetailAST ast) {
-	// Initialize a HashSet to store integers
-		getVisitedTokens().add(ast.getType());
+		visitedTokens.add(ast.getText());
 	}
 	@Override
 	public void beginTree(DetailAST ast)
@@ -34,12 +33,7 @@ public class HalsteadVocabularyCheck extends AbstractCheck{
 	@Override
 	public void finishTree(DetailAST ast)
 	{  
-		log(ast.getLineNo(), "Halstead Vocabulary: "+ getVisitedTokens().size() + " -HK");
+		log(ast.getLineNo(), "Halstead Vocabulary: "+ (visitedTokens.size()) + " -HK");
 	}
 	  
-	//Getter for testing 
-	public Set<Integer> getVisitedTokens() {
-		return visitedTokens;
-	}
-
 }

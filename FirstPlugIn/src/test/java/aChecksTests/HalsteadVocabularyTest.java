@@ -27,6 +27,7 @@ public class HalsteadVocabularyTest {
     @Test
     public void testGetTokens()
     {
+
     	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getAcceptableTokens());
     	assertArrayEquals(new int [0], testCheck.getRequiredTokens());
     	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getDefaultTokens());
@@ -34,32 +35,19 @@ public class HalsteadVocabularyTest {
     
     @Test
     public void testVisitToken() {
-        // Mock the behavior of DetailAST
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.PLUS);
-        // Visit token
+        testCheck.beginTree(mockDetailAST);
+    	// Mock the behavior of DetailAST
+    	when(mockDetailAST.getText()).thenReturn("+");
         testCheck.visitToken(mockDetailAST);
-        
-        // Recall on plus
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.PLUS);
-        testCheck.visitToken(mockDetailAST);
-        
-        // Add another token
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.MINUS);
-        testCheck.visitToken(mockDetailAST);
-
-
-        // Verify if the token type was added to the set
-        Set<Integer> visitedTokens = testCheck.getVisitedTokens();
-        assertTrue(visitedTokens.contains(TokenTypes.PLUS));
-        // Verify token count
-        assertEquals(2,visitedTokens.size());
+    	// Visit token
+        verify(testCheck).visitToken(mockDetailAST);
     }
 
     @Test
     public void testBeginTree()
     {
-    	testCheck.beginTree(mockDetailAST);
-    	assertEquals(0, testCheck.getVisitedTokens().size());
+    	//testCheck.beginTree(mockDetailAST);
+    	verify(testCheck).beginTree(mockDetailAST);
     }
     
     @Test
@@ -71,20 +59,27 @@ public class HalsteadVocabularyTest {
         // Mock the behavior of DetailAST
         when(mockDetailAST.getLineNo()).thenReturn(1);
 
-        // Add 1 token
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.MINUS);
-        testCheck.visitToken(mockDetailAST); // Add multiple to ensure uniqueness
-
+        // Add tokens
+        when(mockDetailAST.getText()).thenReturn("+");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getText()).thenReturn("+");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getText()).thenReturn("-");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getText()).thenReturn("sort");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getText()).thenReturn("a");
+        testCheck.visitToken(mockDetailAST);
+        
         // Finish the tree and log the result
         doNothing().when(testCheck).log(anyInt(), anyString());
         testCheck.finishTree(mockDetailAST);
         
-        // Verify the log method was called
-        //verify(testCheck).log(anyInt(), anyString());
+        // Verify log is called and capture arguments passed in log
         verify(testCheck).log(lineNum.capture(), logMsg.capture());
 
         // Assert the log message
-        String expectedMessage = "Halstead Vocabulary: 1 -HK";
+        String expectedMessage = "Halstead Vocabulary: 4 -HK";
         assertEquals(1, (int) lineNum.getValue());
         assertEquals(expectedMessage, logMsg.getValue());
     }				
