@@ -2,14 +2,11 @@ package aChecksTests;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import java.util.Set;
-
 import org.junit.jupiter.api.*;
 import org.mockito.ArgumentCaptor;
 
 import aChecks.*;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
-import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 public class HalsteadVocabularyTest {
 	
