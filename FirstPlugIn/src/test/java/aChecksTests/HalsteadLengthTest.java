@@ -7,7 +7,6 @@ import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.*;
-import org.mockito.ArgumentCaptor;
 
 import aChecks.*;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
