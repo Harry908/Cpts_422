@@ -1,5 +1,9 @@
 package aChecksTests;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.*;
@@ -8,14 +12,13 @@ import org.mockito.ArgumentCaptor;
 import aChecks.*;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 
-public class HalsteadVocabularyTest {
-	
-	private HalsteadVocabularyCheck testCheck;
+public class HalsteadLengthTest {
+	private HalsteadLengthCheck testCheck;
     private DetailAST mockDetailAST;
 
     @BeforeEach
     public void setUp() {
-        testCheck = spy(new HalsteadVocabularyCheck());
+        testCheck = spy(new HalsteadLengthCheck());
         mockDetailAST = mock(DetailAST.class);
         // Initialize the tree
         testCheck.beginTree(mockDetailAST);
@@ -32,9 +35,7 @@ public class HalsteadVocabularyTest {
     
     @Test
     public void testVisitToken() {
-    	// Mock the behavior of DetailAST
-    	when(mockDetailAST.getText()).thenReturn("+");
-        testCheck.visitToken(mockDetailAST);
+    	testCheck.visitToken(mockDetailAST);
     	// Visit token
         verify(testCheck).visitToken(mockDetailAST);
     }
@@ -48,35 +49,21 @@ public class HalsteadVocabularyTest {
     
     @Test
     public void testFinishTree() {
-    	// Capture the arguments passed to the log method
-        ArgumentCaptor<Integer> lineNum = ArgumentCaptor.forClass(Integer.class);
-        ArgumentCaptor<String> logMsg = ArgumentCaptor.forClass(String.class);
+    	// Mock the behavior of DetailAST
+        when(mockDetailAST.getLineNo()).thenReturn(4);
         
-        // Mock the behavior of DetailAST
-        when(mockDetailAST.getLineNo()).thenReturn(1);
-
         // Add tokens
-        when(mockDetailAST.getText()).thenReturn("+");
         testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getText()).thenReturn("+");
         testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getText()).thenReturn("-");
         testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getText()).thenReturn("sort");
         testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getText()).thenReturn("a");
         testCheck.visitToken(mockDetailAST);
         
         // Finish the tree and log the result
-        doNothing().when(testCheck).log(anyInt(), anyString());
+        doNothing().when(testCheck).log(anyInt(),anyString());
         testCheck.finishTree(mockDetailAST);
         
         // Verify log is called and capture arguments passed in log
-        verify(testCheck).log(lineNum.capture(), logMsg.capture());
-
-        // Assert the log message
-        String expectedMessage = "Halstead Vocabulary: 4 -HK";
-        assertEquals(1, (int) lineNum.getValue());
-        assertEquals(expectedMessage, logMsg.getValue());
-    }				
+        verify(testCheck).log(eq(4), contains("5"));
+    }
 }
