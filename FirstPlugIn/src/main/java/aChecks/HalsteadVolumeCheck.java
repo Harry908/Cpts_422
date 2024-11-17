@@ -1,8 +1,10 @@
 package aChecks;
+
 import java.util.HashSet;
 import java.util.Set;
 
 import com.puppycrawl.tools.checkstyle.api.*;
+
 public class HalsteadVolumeCheck extends AbstractCheck {
 	
 	private Set<String> visitedTokens;
@@ -27,16 +29,15 @@ public class HalsteadVolumeCheck extends AbstractCheck {
 		length++;
 		visitedTokens.add(ast.getText());
 	}
+	
 	@Override
-	public void beginTree(DetailAST ast)
-	{
+	public void beginTree(DetailAST ast) {
 		length = 0;
 		visitedTokens = new HashSet<>();
 	}
 	 
 	@Override
-	public void finishTree(DetailAST ast)
-	{  
+	public void finishTree(DetailAST ast) {  
 		// Volume = N*log2(n)
 		// N = length 
 		// log2(n)= log(n) / log(2)

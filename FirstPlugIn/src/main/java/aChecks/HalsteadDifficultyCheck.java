@@ -1,4 +1,5 @@
 package aChecks;
+
 import java.util.*;
 
 import com.puppycrawl.tools.checkstyle.api.*;
@@ -37,16 +38,14 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 	}
 	
 	@Override
-	public void beginTree(DetailAST ast)
-	{
+	public void beginTree(DetailAST ast) {
 		uniqueOperands = new HashSet<>();
 		uniqueOperators = new HashSet<>();
 		operands =0;
 	}
 	 
 	@Override
-	public void finishTree(DetailAST ast)
-	{  
+	public void finishTree(DetailAST ast) {  
 		// cast to double
 		double n2 = uniqueOperands.size();
 		double n1 = uniqueOperators.size();
@@ -56,8 +55,4 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 		
 		log(ast.getLineNo(), "Halstead Difficulty: "+ formattedD + " -HK");
 	}
-	
-	
-	
-
 }

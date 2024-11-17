@@ -25,16 +25,14 @@ public class HalsteadLengthCheck extends AbstractCheck {
 	  public void visitToken(DetailAST ast) {
 	    count++;
 	  }
+	  
 	  @Override
-	  public void beginTree(DetailAST ast)
-	  {
+	  public void beginTree(DetailAST ast) {
 		  count = 0;
 	  }
 	 
 	  @Override
-	  public void finishTree(DetailAST ast)
-	  {  
+	  public void finishTree(DetailAST ast) {  
 		  log(ast.getLineNo(), "Halstead Length: "+ count + " -HK");
 	  }
-
 }

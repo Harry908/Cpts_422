@@ -2,8 +2,8 @@ package bChecks;
 
 import com.puppycrawl.tools.checkstyle.api.*;
 
-public class LoopStatementCountCheck extends AbstractCheck{
-private int loopCnt = 0;
+public class LoopStatementCountCheck extends AbstractCheck {
+	private int loopCnt = 0;
 	
 	@Override
 	public int[] getAcceptableTokens() {
@@ -26,15 +26,14 @@ private int loopCnt = 0;
 	public void visitToken(DetailAST ast) {
 		loopCnt++;
 	}
+	
 	@Override
-	public void beginTree(DetailAST ast)
-	{
+	public void beginTree(DetailAST ast) {
 		loopCnt = 0;
 	}
 	 
 	@Override
-	public void finishTree(DetailAST ast)
-	{
+	public void finishTree(DetailAST ast) {
 		log(ast.getLineNo(), "Number of loop statements: "+ loopCnt + " -HK");
 	}
 }

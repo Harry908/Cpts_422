@@ -101,13 +101,16 @@ public class HalsteadDifficultyTest {
         when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
         when(mockDetailAST.getText()).thenReturn("5");
         testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
+        when(mockDetailAST.getText()).thenReturn("a");
+        testCheck.visitToken(mockDetailAST);
         
         
         // Calculate Difficulty
         // D = (n1 / 2) * (N2 / n2) 
         int n1 = 4; // unique operators
         double n2 = 3; // unique operands
-        double N2 = 5; // total operands
+        double N2 = 6; // total operands
         double D = (n1 / 2.0) * (N2 / n2);
         String formattedD = String.format("%.2f", D);
         

@@ -62,7 +62,7 @@ public class HalsteadEffortTest {
         // Mock the behavior of DetailAST
         when(mockDetailAST.getLineNo()).thenReturn(1);
 
-        // Add tokens
+        // Add Operators
         when(mockDetailAST.getType()).thenReturn(TokenTypes.PLUS);
         when(mockDetailAST.getText()).thenReturn("+");
         testCheck.visitToken(mockDetailAST);
@@ -74,10 +74,18 @@ public class HalsteadEffortTest {
         testCheck.visitToken(mockDetailAST);
         when(mockDetailAST.getType()).thenReturn(TokenTypes.MINUS);
         when(mockDetailAST.getText()).thenReturn("-");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
+        when(mockDetailAST.getText()).thenReturn("(");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
+        when(mockDetailAST.getText()).thenReturn("(");
         testCheck.visitToken(mockDetailAST);
         when(mockDetailAST.getType()).thenReturn(TokenTypes.LITERAL_INT);
         when(mockDetailAST.getText()).thenReturn("int");
         testCheck.visitToken(mockDetailAST);
+        
+        // Add Operands
         when(mockDetailAST.getType()).thenReturn(TokenTypes.IDENT);
         when(mockDetailAST.getText()).thenReturn("sort");
         testCheck.visitToken(mockDetailAST);
@@ -91,23 +99,20 @@ public class HalsteadEffortTest {
         when(mockDetailAST.getText()).thenReturn("a");
         testCheck.visitToken(mockDetailAST);
         when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
+        when(mockDetailAST.getText()).thenReturn("a");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
         when(mockDetailAST.getText()).thenReturn("5");
-        testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
-        when(mockDetailAST.getText()).thenReturn("(");
-        testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
-        when(mockDetailAST.getText()).thenReturn("(");
         testCheck.visitToken(mockDetailAST);
         
         // Calculate Difficulty
         // D = (n1 / 2) * (N2 / n2) 
         int n1 = 4; // unique operators
         double n2 = 3; // unique operands
-        double N2 = 5; // total operands
+        double N2 = 6; // total operands
         double D = (n1 / 2.0) * (N2 / n2);
         // Calculate volume
-        int N = 12;
+        int N = 13;
         int n = 7;
         double volume = N * (Math.log(n) / Math.log(2));
         

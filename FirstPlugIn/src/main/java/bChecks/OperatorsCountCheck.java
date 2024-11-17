@@ -3,8 +3,8 @@ package bChecks;
 import aChecks.HalsteadToken;
 import com.puppycrawl.tools.checkstyle.api.*;
 
-public class OperatorsCountCheck extends AbstractCheck{
-	int count = 0;
+public class OperatorsCountCheck extends AbstractCheck {
+	private int count = 0;
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -20,19 +20,19 @@ public class OperatorsCountCheck extends AbstractCheck{
 	public int[] getRequiredTokens() {
 		return new int [0];
 	}
+	
 	@Override
 	public void visitToken(DetailAST ast) {
 		count++;
 	}
+	
 	@Override
-	public void beginTree(DetailAST ast)
-	{
+	public void beginTree(DetailAST ast) {
 		count = 0;
 	}
 	 
 	@Override
-	public void finishTree(DetailAST ast)
-	{
+	public void finishTree(DetailAST ast) {
 		log(ast.getLineNo(), "Number of operators: "+ count + " -HK");
 	}
 }

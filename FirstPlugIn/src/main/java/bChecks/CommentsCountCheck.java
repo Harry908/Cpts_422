@@ -11,8 +11,7 @@ public class CommentsCountCheck extends AbstractCheck {
 	}
 	  
 	@Override
-	public boolean isCommentNodesRequired()
-	{
+	public boolean isCommentNodesRequired() {
 		return true;
 	}
 	  
@@ -30,15 +29,14 @@ public class CommentsCountCheck extends AbstractCheck {
 	public void visitToken(DetailAST ast) {
 		count++;
 	}
+	
 	@Override
-	public void beginTree(DetailAST ast)
-	{
+	public void beginTree(DetailAST ast) {
 		count = 0;
 	}
 	 
 	@Override
-	public void finishTree(DetailAST ast)
-	{
+	public void finishTree(DetailAST ast) {
 		log(ast.getLineNo(), "Number of comments: "+ count + " -HK");
 	}
 }

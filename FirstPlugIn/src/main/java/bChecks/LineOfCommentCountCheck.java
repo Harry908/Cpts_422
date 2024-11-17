@@ -13,8 +13,7 @@ public class LineOfCommentCountCheck extends AbstractCheck {
 	}
 	
 	@Override
-	public boolean isCommentNodesRequired()
-	{
+	public boolean isCommentNodesRequired() {
 		return true;
 	}
 	  
@@ -43,15 +42,14 @@ public class LineOfCommentCountCheck extends AbstractCheck {
 			lineCnt++;
 		}
 	}
+	
 	@Override
-	public void beginTree(DetailAST ast)
-	{
+	public void beginTree(DetailAST ast) {
 		lineCnt = 0;
 	}
 	 
 	@Override
-	public void finishTree(DetailAST ast)
-	{
+	public void finishTree(DetailAST ast) {
 		log(ast.getLineNo(), "Number of lines of comments: "+ lineCnt + " -HK");
 	}
 }

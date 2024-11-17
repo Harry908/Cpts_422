@@ -1,4 +1,5 @@
 package aChecks;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -23,7 +24,6 @@ public class HalsteadVocabularyTest {
     @Test
     public void testGetTokens()
     {
-
     	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getAcceptableTokens());
     	assertArrayEquals(new int [0], testCheck.getRequiredTokens());
     	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getDefaultTokens());

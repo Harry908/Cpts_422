@@ -19,19 +19,19 @@ public class ExpressionCountCheck extends AbstractCheck{
 	public int[] getRequiredTokens() {
 		return new int [0];
 	}
+	
 	@Override
 	public void visitToken(DetailAST ast) {
 		count++;
 	}
+	
 	@Override
-	public void beginTree(DetailAST ast)
-	{
+	public void beginTree(DetailAST ast) {
 		count = 0;
 	}
 	 
 	@Override
-	public void finishTree(DetailAST ast)
-	{
+	public void finishTree(DetailAST ast) {
 		log(ast.getLineNo(), "Number of expressions: "+ count + " -HK");
 	}
 }
