@@ -7,9 +7,11 @@ public class LineOfCommentCountCheck extends AbstractCheck {
 	
 	@Override
 	public int[] getAcceptableTokens() {
-		return new int[] {TokenTypes.COMMENT_CONTENT };
+		return new int[] {TokenTypes.SINGLE_LINE_COMMENT,
+						  TokenTypes.BLOCK_COMMENT_BEGIN,
+						  TokenTypes.BLOCK_COMMENT_END};
 	}
-	  
+	
 	@Override
 	public boolean isCommentNodesRequired()
 	{
@@ -28,6 +30,18 @@ public class LineOfCommentCountCheck extends AbstractCheck {
 	
 	@Override
 	public void visitToken(DetailAST ast) {
+		if(ast.getType() == TokenTypes.BLOCK_COMMENT_BEGIN)
+		{
+			lineCnt -= ast.getLineNo();
+		} 
+		else if(ast.getType() == TokenTypes.BLOCK_COMMENT_END) 
+		{
+			lineCnt += ast.getLineNo() + 1;
+		}
+		else
+		{
+			lineCnt++;
+		}
 	}
 	@Override
 	public void beginTree(DetailAST ast)
