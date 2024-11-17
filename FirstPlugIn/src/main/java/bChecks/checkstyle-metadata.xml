@@ -10,6 +10,32 @@
             <alternative-name internal-name="bChecks.CommentsCountCheck" />
             <description>%CommentsCount.desc</description>
         </rule-metadata>
+        
+        <rule-metadata name="%LineOfCommentCount.name" internal-name="LineOfCommentCount" parent="TreeWalker">
+            <alternative-name internal-name="bChecks.LineOfCommentCountCheck" />
+            <description>%LineOfCommentCount.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%LoopStatementCount.name" internal-name="LoopStatementCount" parent="TreeWalker">
+            <alternative-name internal-name="bChecks.LoopStatementCountCheck" />
+            <description>%LoopStatementCount.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%OperatorsCount.name" internal-name="OperatorsCount" parent="TreeWalker">
+            <alternative-name internal-name="bChecks.OperatorsCountCheck" />
+            <description>%OperatorsCount.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%OperandsCount.name" internal-name="OperandsCount" parent="TreeWalker">
+            <alternative-name internal-name="bChecks.OperandsCountCheck" />
+            <description>%OperandsCount.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%ExpressionCount.name" internal-name="ExpressionCount" parent="TreeWalker">
+            <alternative-name internal-name="bChecks.ExpressionCountCheck" />
+            <description>%ExpressionCount.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>
 
