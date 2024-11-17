@@ -1,9 +1,9 @@
 package bChecks;
-
+ 
 import com.puppycrawl.tools.checkstyle.api.*;
 
-public class CommentsCountCheck extends AbstractCheck {
-	private int count = 0;
+public class LineOfCommentCountCheck extends AbstractCheck {
+	private int lineCnt = 0;
 	
 	@Override
 	public int[] getAcceptableTokens() {
@@ -28,17 +28,16 @@ public class CommentsCountCheck extends AbstractCheck {
 	
 	@Override
 	public void visitToken(DetailAST ast) {
-		count++;
 	}
 	@Override
 	public void beginTree(DetailAST ast)
 	{
-		count = 0;
+		lineCnt = 0;
 	}
 	 
 	@Override
 	public void finishTree(DetailAST ast)
 	{
-		log(ast.getLineNo(), "Comments Count "+ count + " -HK");
+		log(ast.getLineNo(), "Comments Count "+ lineCnt + " -HK");
 	}
 }
