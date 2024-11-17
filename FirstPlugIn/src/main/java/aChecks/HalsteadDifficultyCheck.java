@@ -36,6 +36,7 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 			uniqueOperators.add(ast.getText());
 		}
 	}
+	
 	@Override
 	public void beginTree(DetailAST ast)
 	{
