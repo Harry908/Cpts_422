@@ -69,6 +69,6 @@ public class HalsteadEffortCheck extends AbstractCheck{
 		double E = V*D;
 		String formattedE = String.format("%.2f", E);
 		
-		log(ast.getLineNo(), "Halstead Volume: "+ formattedE + " -HK");
+		log(ast.getLineNo(), "Halstead Effort: "+ formattedE + " -HK");
 	}
 }

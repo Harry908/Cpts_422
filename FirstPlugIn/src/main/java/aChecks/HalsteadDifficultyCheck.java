@@ -55,7 +55,7 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 		double D =  (n1 / 2.0) * (operands / n2);
 		String formattedD = String.format("%.2f", D);
 		
-		log(ast.getLineNo(), "Halstead Volume: "+ formattedD + " -HK");
+		log(ast.getLineNo(), "Halstead Difficulty: "+ formattedD + " -HK");
 	}
 	
 	
