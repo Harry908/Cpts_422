@@ -1,11 +1,10 @@
-package aChecksTests;
+package aChecks;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.*;
 import org.mockito.ArgumentCaptor;
 
-import aChecks.*;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 
 public class HalsteadVocabularyTest {

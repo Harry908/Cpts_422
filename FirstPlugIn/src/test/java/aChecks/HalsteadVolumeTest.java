@@ -1,4 +1,4 @@
-package aChecksTests;
+package aChecks;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -7,8 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
-
-import aChecks.*;
 
 public class HalsteadVolumeTest {
 	private HalsteadVolumeCheck testCheck;
@@ -51,13 +49,15 @@ public class HalsteadVolumeTest {
         // Mock the behavior of DetailAST
         when(mockDetailAST.getLineNo()).thenReturn(1);
 
-        // Add tokens
+        // Add Operators
         when(mockDetailAST.getText()).thenReturn("+");
         testCheck.visitToken(mockDetailAST);
         when(mockDetailAST.getText()).thenReturn("+");
         testCheck.visitToken(mockDetailAST);
         when(mockDetailAST.getText()).thenReturn("-");
         testCheck.visitToken(mockDetailAST);
+        
+        // Add Operands
         when(mockDetailAST.getText()).thenReturn("sort");
         testCheck.visitToken(mockDetailAST);
         when(mockDetailAST.getText()).thenReturn("b");

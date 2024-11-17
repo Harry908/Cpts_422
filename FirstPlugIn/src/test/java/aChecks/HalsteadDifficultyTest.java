@@ -1,4 +1,4 @@
-package aChecksTests;
+package aChecks;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -12,8 +12,6 @@ import org.junit.jupiter.api.Test;
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-
-import aChecks.*;
 
 public class HalsteadDifficultyTest {
 	private HalsteadDifficultyCheck testCheck;
@@ -64,7 +62,7 @@ public class HalsteadDifficultyTest {
         // Mock the behavior of DetailAST
         when(mockDetailAST.getLineNo()).thenReturn(1);
 
-        // Add tokens
+        // Add Operators
         when(mockDetailAST.getType()).thenReturn(TokenTypes.PLUS);
         when(mockDetailAST.getText()).thenReturn("+");
         testCheck.visitToken(mockDetailAST);
@@ -80,6 +78,14 @@ public class HalsteadDifficultyTest {
         when(mockDetailAST.getType()).thenReturn(TokenTypes.LITERAL_INT);
         when(mockDetailAST.getText()).thenReturn("int");
         testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
+        when(mockDetailAST.getText()).thenReturn("(");
+        testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
+        when(mockDetailAST.getText()).thenReturn("(");
+        testCheck.visitToken(mockDetailAST);
+        
+        // Add Operands
         when(mockDetailAST.getType()).thenReturn(TokenTypes.IDENT);
         when(mockDetailAST.getText()).thenReturn("sort");
         testCheck.visitToken(mockDetailAST);
@@ -95,12 +101,7 @@ public class HalsteadDifficultyTest {
         when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
         when(mockDetailAST.getText()).thenReturn("5");
         testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
-        when(mockDetailAST.getText()).thenReturn("(");
-        testCheck.visitToken(mockDetailAST);
-        when(mockDetailAST.getType()).thenReturn(TokenTypes.LPAREN);
-        when(mockDetailAST.getText()).thenReturn("(");
-        testCheck.visitToken(mockDetailAST);
+        
         
         // Calculate Difficulty
         // D = (n1 / 2) * (N2 / n2) 

@@ -1,4 +1,4 @@
-package aChecksTests;
+package aChecks;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -12,8 +12,6 @@ import org.junit.jupiter.api.Test;
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-
-import aChecks.*;
 
 public class HalsteadEffortTest {
 	private HalsteadEffortCheck testCheck;
