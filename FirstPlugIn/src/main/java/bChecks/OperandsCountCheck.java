@@ -8,7 +8,7 @@ public class OperandsCountCheck extends AbstractCheck{
 
 	@Override
 	public int[] getDefaultTokens() {
-		return new int [0];
+		return getAcceptableTokens();
 	}
 
 	@Override

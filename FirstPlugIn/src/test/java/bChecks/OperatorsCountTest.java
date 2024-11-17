@@ -29,7 +29,7 @@ public class OperatorsCountTest {
 	public void testGetTokens() {
 		assertArrayEquals(HalsteadToken.OPERATORS, testCheck.getAcceptableTokens());
 		assertArrayEquals(new int [0], testCheck.getRequiredTokens());
-		assertArrayEquals(new int [0], testCheck.getDefaultTokens());
+		assertArrayEquals(HalsteadToken.OPERATORS, testCheck.getDefaultTokens());
 	}
 	
 	// Just verify function call. result can only be check in finishTree (without a getter).

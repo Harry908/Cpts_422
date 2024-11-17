@@ -7,7 +7,7 @@ public class ExpressionCountCheck extends AbstractCheck{
 
 	@Override
 	public int[] getDefaultTokens() {
-		return new int [0];
+		return getAcceptableTokens();
 	}
 
 	@Override

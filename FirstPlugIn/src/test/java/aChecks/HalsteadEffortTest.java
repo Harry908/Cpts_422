@@ -30,7 +30,7 @@ public class HalsteadEffortTest {
     {
     	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getAcceptableTokens());
     	assertArrayEquals(new int [0], testCheck.getRequiredTokens());
-    	assertArrayEquals(new int[0], testCheck.getDefaultTokens());
+    	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getDefaultTokens());
     }
     
     // Just verify function call. result can only be check in finishTree (without a getter).

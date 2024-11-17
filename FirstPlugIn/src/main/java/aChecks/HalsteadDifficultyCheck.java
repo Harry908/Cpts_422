@@ -10,8 +10,7 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 	
 	@Override
 	public int[] getDefaultTokens() {
-		// TODO Auto-generated method stub
-		return new int[0];
+		return getAcceptableTokens();
 	}
 
 	@Override
