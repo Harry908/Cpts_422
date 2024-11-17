@@ -30,10 +30,9 @@ public class HalsteadDifficultyTest {
     @Test
     public void testGetTokens()
     {
-
     	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getAcceptableTokens());
     	assertArrayEquals(new int [0], testCheck.getRequiredTokens());
-    	assertArrayEquals(HalsteadToken.ALL_TOKENS, testCheck.getDefaultTokens());
+    	assertArrayEquals(new int[0], testCheck.getDefaultTokens());
     }
     
     // Just verify function call. result can only be check in finishTree (without a getter).
@@ -52,8 +51,6 @@ public class HalsteadDifficultyTest {
         testCheck.visitToken(mockDetailAST);
     	// Visit token
         verify(testCheck, times(2)).visitToken(mockDetailAST);
-        
-        
     }
 
     @Test
@@ -92,6 +89,9 @@ public class HalsteadDifficultyTest {
         when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
         when(mockDetailAST.getText()).thenReturn("5");
         testCheck.visitToken(mockDetailAST);
+        when(mockDetailAST.getType()).thenReturn(TokenTypes.IDENT);
+        when(mockDetailAST.getText()).thenReturn("a");
+        testCheck.visitToken(mockDetailAST);
         when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
         when(mockDetailAST.getText()).thenReturn("5");
         testCheck.visitToken(mockDetailAST);
@@ -104,10 +104,10 @@ public class HalsteadDifficultyTest {
         
         // Calculate Difficulty
         // D = (n1 / 2) * (N2 / n2) 
-        int n1 = 3; // unique operators
-        int n2 = 3; // unique operands
-        int N2 = 6; // total operands
-        double D = (n1 / 2) * (N2 / n2);
+        int n1 = 4; // unique operators
+        double n2 = 3; // unique operands
+        double N2 = 5; // total operands
+        double D = (n1 / 2.0) * (N2 / n2);
         String formattedD = String.format("%.2f", D);
         
         // Finish the tree and log the result

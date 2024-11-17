@@ -52,6 +52,18 @@ public final class HalsteadToken {
 	        TokenTypes.LITERAL_NULL, TokenTypes.LITERAL_FALSE, TokenTypes.LITERAL_TRUE, 
 	        TokenTypes.IDENT
 	    };
+	    
+	    public static boolean isOperand(int token)
+	    {
+	    	for (int i : OPERANDS)
+    		{
+    			if(i == token)
+    			{
+    				return true;
+    			}
+    		}
+    		return false;
+	    }
 
 	    public static final int[] ALL_TOKENS;
 
@@ -59,4 +71,6 @@ public final class HalsteadToken {
 	        ALL_TOKENS = Arrays.copyOf(OPERATORS, OPERATORS.length + OPERANDS.length);
 	        System.arraycopy(OPERANDS, 0, ALL_TOKENS, OPERATORS.length, OPERANDS.length);
 	    }
+	    
+	    
 }
