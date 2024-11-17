@@ -11,12 +11,6 @@ private int loopCnt = 0;
 						  TokenTypes.LITERAL_FOR,
 						  TokenTypes.LITERAL_WHILE};
 	}
-	
-	@Override
-	public boolean isCommentNodesRequired()
-	{
-		return true;
-	}
 	  
 	@Override
 	public int[] getRequiredTokens() {
@@ -41,6 +35,6 @@ private int loopCnt = 0;
 	@Override
 	public void finishTree(DetailAST ast)
 	{
-		log(ast.getLineNo(), "Comments Count "+ loopCnt + " -HK");
+		log(ast.getLineNo(), "Number of loop statements: "+ loopCnt + " -HK");
 	}
 }

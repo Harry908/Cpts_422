@@ -14,11 +14,11 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 public class LoopStatementCountTest {
-	CommentsCountCheck testCheck;
+	LoopStatementCountCheck testCheck;
 	DetailAST mockDetailAST;
 	@BeforeEach
 	public void setUp() {
-		testCheck = spy(new CommentsCountCheck());
+		testCheck = spy(new LoopStatementCountCheck());
         mockDetailAST = mock(DetailAST.class);
         // Initialize the tree
         testCheck.beginTree(mockDetailAST);
@@ -44,11 +44,6 @@ public class LoopStatementCountTest {
 	@Test
 	public void testBeginTree() {
 		verify(testCheck).beginTree(mockDetailAST);
-	}
-	
-	@Test
-	public void testIsCommentNodeRequired() {
-		assertTrue(testCheck.isCommentNodesRequired());
 	}
 	
 	@Test

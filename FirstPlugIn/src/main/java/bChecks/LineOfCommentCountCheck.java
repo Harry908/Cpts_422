@@ -52,6 +52,6 @@ public class LineOfCommentCountCheck extends AbstractCheck {
 	@Override
 	public void finishTree(DetailAST ast)
 	{
-		log(ast.getLineNo(), "Comments Count "+ lineCnt + " -HK");
+		log(ast.getLineNo(), "Number of lines of comments: "+ lineCnt + " -HK");
 	}
 }
