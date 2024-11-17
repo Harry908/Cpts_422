@@ -28,11 +28,16 @@ public final class HalsteadToken {
 	        TokenTypes.LPAREN,TokenTypes.COLON,TokenTypes.QUESTION,
 	        TokenTypes.INDEX_OP, TokenTypes.SEMI,TokenTypes.LAMBDA,
 	        
+	        //Loops
+	        //TokenTypes.DO_WHILE,TokenTypes.FOR_EACH_CLAUSE,
+	        TokenTypes.LITERAL_DO,
+	        TokenTypes.LITERAL_WHILE,
+	        TokenTypes.LITERAL_FOR,
+	        
 	        //Keywords
-			TokenTypes.DO_WHILE,TokenTypes.LITERAL_DO,
+			
 			TokenTypes.LITERAL_IF,TokenTypes.LITERAL_ELSE,
-			TokenTypes.FOR_EACH_CLAUSE,TokenTypes.LITERAL_FOR,
-			TokenTypes.LITERAL_WHILE,TokenTypes.LITERAL_CONTINUE,
+			TokenTypes.LITERAL_CONTINUE,
 			TokenTypes.LITERAL_SWITCH, TokenTypes.CASE_GROUP, 
 			TokenTypes.LITERAL_CASE,TokenTypes.LITERAL_BREAK, TokenTypes.LITERAL_DEFAULT,
 	        TokenTypes.LITERAL_FINALLY, 
