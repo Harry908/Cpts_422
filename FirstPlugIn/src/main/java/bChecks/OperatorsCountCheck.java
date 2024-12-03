@@ -18,21 +18,21 @@ public class OperatorsCountCheck extends AbstractCheck {
 
 	@Override
 	public int[] getRequiredTokens() {
-		return new int [0];
+		return new int[0];
 	}
-	
+
 	@Override
 	public void visitToken(DetailAST ast) {
 		count++;
 	}
-	
+
 	@Override
 	public void beginTree(DetailAST ast) {
 		count = 0;
 	}
-	 
+
 	@Override
 	public void finishTree(DetailAST ast) {
-		log(ast.getLineNo(), "Number of operators: "+ count + " -HK");
+		log(ast.getLineNo(), "Number of operators: " + count + " -HK");
 	}
 }
