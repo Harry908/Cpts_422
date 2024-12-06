@@ -22,7 +22,7 @@ public final class HalsteadToken {
 
 			// Punctuation
 			TokenTypes.COMMA, TokenTypes.DOT, TokenTypes.LCURLY, TokenTypes.LPAREN, TokenTypes.COLON,
-			TokenTypes.QUESTION, TokenTypes.INDEX_OP, TokenTypes.SEMI, TokenTypes.LAMBDA,
+			TokenTypes.QUESTION, TokenTypes.INDEX_OP, TokenTypes.SEMI, TokenTypes.LAMBDA, TokenTypes.ARRAY_DECLARATOR,
 
 			// Loops
 			// TokenTypes.DO_WHILE,TokenTypes.FOR_EACH_CLAUSE,

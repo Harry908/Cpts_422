@@ -1,8 +1,10 @@
 package aChecks;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
-import com.puppycrawl.tools.checkstyle.api.*;
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
 
 public class HalsteadDifficultyCheck extends AbstractCheck {
 	private Set<String> uniqueOperands;
@@ -52,4 +54,12 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 
 		log(ast.getLineNo(), "Halstead Difficulty: " + formattedD + " -HK");
 	}
+
+	/*
+	 * public int getOperatorsCnt() { return uniqueOperators.size(); }
+	 * 
+	 * public int getOperandsCnt() { return uniqueOperands.size(); }
+	 * 
+	 * public Set<String> getOperands() { return uniqueOperands; }
+	 */
 }
