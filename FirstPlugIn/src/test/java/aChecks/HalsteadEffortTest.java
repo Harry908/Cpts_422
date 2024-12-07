@@ -5,7 +5,12 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -116,7 +121,7 @@ public class HalsteadEffortTest {
 		double volume = N * (Math.log(n) / Math.log(2));
 
 		double E = D * volume;
-		String formattedE = String.format("%.2f", E);
+		String formattedE = " " + String.format("%.2f", E);
 
 		// Finish the tree and log the result
 		doNothing().when(testCheck).log(anyInt(), anyString());

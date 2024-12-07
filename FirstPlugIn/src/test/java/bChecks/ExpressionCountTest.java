@@ -65,6 +65,6 @@ public class ExpressionCountTest {
 		testCheck.finishTree(mockDetailAST);
 
 		// Verify log is called and argument passed in
-		verify(testCheck).log(eq(1), contains("5"));
+		verify(testCheck).log(eq(1), contains(" 5"));
 	}
 }

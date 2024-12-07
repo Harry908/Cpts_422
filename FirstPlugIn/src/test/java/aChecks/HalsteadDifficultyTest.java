@@ -5,7 +5,12 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -88,8 +93,8 @@ public class HalsteadDifficultyTest {
 		when(mockDetailAST.getType()).thenReturn(TokenTypes.IDENT);
 		when(mockDetailAST.getText()).thenReturn("sort");
 		testCheck.visitToken(mockDetailAST);
-		when(mockDetailAST.getType()).thenReturn(TokenTypes.IDENT);
-		when(mockDetailAST.getText()).thenReturn("sort");
+//		when(mockDetailAST.getType()).thenReturn(TokenTypes.IDENT);
+//		when(mockDetailAST.getText()).thenReturn("sort");
 		testCheck.visitToken(mockDetailAST);
 		when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
 		when(mockDetailAST.getText()).thenReturn("5");
@@ -102,21 +107,33 @@ public class HalsteadDifficultyTest {
 		testCheck.visitToken(mockDetailAST);
 		when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
 		when(mockDetailAST.getText()).thenReturn("a");
+		testCheck.visitToken(mockDetailAST);
+		when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
+		when(mockDetailAST.getText()).thenReturn("b");
+		testCheck.visitToken(mockDetailAST);
+		when(mockDetailAST.getType()).thenReturn(TokenTypes.NUM_INT);
+		when(mockDetailAST.getText()).thenReturn("6");
 		testCheck.visitToken(mockDetailAST);
 
 		// Calculate Difficulty
 		// D = (n1 / 2) * (N2 / n2)
 		int n1 = 4; // unique operators
-		double n2 = 3; // unique operands
-		double N2 = 6; // total operands
+		double n2 = 5; // unique operands
+		double N2 = 8; // total operands
 		double D = (n1 / 2.0) * (N2 / n2);
-		String formattedD = String.format("%.2f", D);
+		String formattedD = " " + String.format("%.2f", D);
 
 		// Finish the tree and log the result
 		doNothing().when(testCheck).log(anyInt(), anyString());
 		testCheck.finishTree(mockDetailAST);
 
+		// ArgumentCaptor<String> msg = ArgumentCaptor.forClass(String.class);
+
 		// Verify log is called and argument passed in
 		verify(testCheck).log(eq(1), contains(formattedD));
+
+		// System.out.println(msg.getValue());
+		// System.out.println(formattedD);
+
 	}
 }
