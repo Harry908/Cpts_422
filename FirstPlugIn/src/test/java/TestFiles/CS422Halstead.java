@@ -7,8 +7,6 @@ public class CS422Halstead {
 		/* This function sorts array x in ascending order */
 		if (n < 2)
 			return 1;
-		// for while
-		String m = " Foreach";
 		for (i = 2; i <= n; i++) {
 			im1 = i - 1;
 			for (j = 1; j <= im1; j++)

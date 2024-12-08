@@ -22,7 +22,7 @@ public class HalsteadLengthTest {
 	@Test
 	public void test1() {
 		check("src/test/java/TestFiles/CS422Halstead.java");
-		verify(testCheck).log(anyInt(), contains("100"));
+		verify(testCheck).log(anyInt(), contains("95"));
 	}
 
 	public void check(String filePath) {
