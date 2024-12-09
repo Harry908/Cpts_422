@@ -28,7 +28,7 @@ public class aCheckTests {
 		HalsteadLengthCheck testCheck = spy(new HalsteadLengthCheck());
 		walker = new CheckEngine(testCheck);
 
-		check("aChecksTestcase");
+		check("aChecksModels");
 
 		verify(testCheck).log(anyInt(), contains(" 97"));
 	}
@@ -39,7 +39,7 @@ public class aCheckTests {
 		HalsteadVocabularyCheck testCheck = spy(new HalsteadVocabularyCheck());
 		walker = new CheckEngine(testCheck);
 
-		check("aChecksTestcase");
+		check("aChecksModels");
 
 		verify(testCheck).log(anyInt(), contains(" 34"));
 	}
@@ -50,7 +50,7 @@ public class aCheckTests {
 		HalsteadVolumeCheck testCheck = spy(new HalsteadVolumeCheck());
 		walker = new CheckEngine(testCheck);
 
-		check("aChecksTestcase");
+		check("aChecksModels");
 
 		verify(testCheck).log(anyInt(), contains(" 493.48"));
 	}
@@ -61,7 +61,7 @@ public class aCheckTests {
 		HalsteadDifficultyCheck testCheck = spy(new HalsteadDifficultyCheck());
 		walker = new CheckEngine(testCheck);
 
-		check("aChecksTestcase");
+		check("aChecksModels");
 
 		verify(testCheck).log(anyInt(), contains(" 8.33"));
 	}
@@ -72,7 +72,7 @@ public class aCheckTests {
 		HalsteadEffortCheck testCheck = spy(new HalsteadEffortCheck());
 		walker = new CheckEngine(testCheck);
 
-		check("aChecksTestcase");
+		check("aChecksModels");
 
 		verify(testCheck).log(anyInt(), contains(" 4112.37"));
 	}

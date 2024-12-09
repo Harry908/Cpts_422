@@ -1,6 +1,6 @@
 package TestFiles;
 
-public class aChecksTestcase {
+public class aChecksModels {
 	public void main() {
 
 		// Fault Model 1: HalsteadLengthCheck
