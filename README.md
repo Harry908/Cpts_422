@@ -34,6 +34,6 @@ An Eclipse plug-in to detect structural metrics.
   ***Note:** Content of single line comment `//<content>` and block comment `/*<content>*/`
 
 ### Tests
-WhiteBox: 100% branch coverage (details in Del2/TestReport.pdf)
-BlackBox: test with fault models specify in Del3/report.pdf
-Pit-clipse mutation test: 100% mutation coverage (details in Del3/report.pdf)
++ WhiteBox: 100% branch coverage (details in Del2/TestReport.pdf)
++ BlackBox: test with fault models specify in Del3/report.pdf
++ Pit-clipse mutation test: 100% mutation coverage (details in Del3/report.pdf)
