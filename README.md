@@ -20,7 +20,7 @@ An Eclipse plug-in to detect structural metrics.
   - **Operators**: arithmetic, relational, logical, and bitwise operators, as well as keywords and function calls.
   - **Operands**: variables, constants, and literals.
 
-  - Please refer to [GeeksforGeeks: Halstead's Software Metrics](https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/). While the link uses C language as an example, you should follow the same definitions for "operators" and "operands" and adapt them for Java.
+  - Please refer to [GeeksforGeeks: Halstead's Software Metrics](https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/). While the link uses C language as an example, some extra Java concepts such as class names and packages are counted as operands. 
 
 #### Category B* Checks
 - **Comments Count**: Total number of comments.
